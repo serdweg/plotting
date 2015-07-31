@@ -201,8 +201,8 @@ def main():
 
     bghists.addFileList(bglist)
 
-    dat_hist=HistStorage(xs,lumi,path=basedir,isData=True)
-    # dat_hist.addFile("Data")
+    dat_hist=HistStorage(xs,lumi,path='/disk1/erdweg/out/output2015_7_31_11_21/merged/',isData=True)
+    dat_hist.addFile("Data_251027_251883_SingleMuon_v2")
 
     hists=[#'Taus/h1_1_Tau_eta',
     #'Taus/h1_1_Tau_phi',
@@ -284,7 +284,7 @@ def main():
 
         binf=getDictValue(hist,binning)
         if binf is not None:
-            # dat_hist.rebin(width=binf)
+            dat_hist.rebin(width=1,vector=binf)
             bghists.rebin(width=1,vector=binf)
             sghist.rebin(width=1,vector=binf)
         # bghists.colorList=colorList
@@ -300,12 +300,9 @@ def main():
         dummy.SaveAs('plots/' + hist.replace("/","") + '.root')
 
         test = plotter(hist=bghists.getHistList(), sig = sghist.getHistList(),style=hist_style)
-        # test.Add_data(dat_hist.getHistList()[0])
-        # test.Add_plot('Signi',pos=0, height=15)
+        test.Add_data(dat_hist.getHistList()[0])
 
-        #test.Add_plot('DiffRatio',pos=1, height=15)
-        # test.Add_plot('Signi',pos=2, height=15)
-        # test.Add_plot('Diff',pos=1, height=15)
+        #test.Add_plot('Diff',pos=1, height=15)
         # plt.xkcd()
         hist_style.Set_error_bands_fcol(['gray','orange'])
         hist_style.Set_error_bands_ecol(['black','black'])
@@ -318,8 +315,10 @@ def main():
             test.Add_error_hist([sys_file.Get('Sys'),sys_file.Get('MC statistic')], band_center = 'ref', stacking = 'Nosum')
             # test.Add_error_hist([sys_file.Get('MC statistic')], band_center = 'ref', stacking = 'Nosum')
 
-        test._cms_text_x         = 0.12
-        test._cms_text_y         = 0.91
+        test.Add_plot('Diff',pos=0, height=15)
+
+        test.Add_plot('DiffRatio',pos=1, height=15)
+        test.Add_plot('Signi',pos=2, height=15)
 # 
         # mxrange=getDictValue(hist,xranges)
         if hist in xranges.keys():
