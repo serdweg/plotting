@@ -12,7 +12,7 @@ except ImportError:
 from rootpy.plotting.views import ScaleView
 from rootpy.io import File
 
-def get_binning_from_hist(file_name, hist_name, plot_range, debug=False):
+def get_binning_from_hist(file_name, hist_name, plot_range, debug=False, min_binning = 1):
     res_file = File(file_name, "read")
     res_hist = res_file.Get(hist_name)
     binning = [plot_range[0]]
@@ -20,10 +20,10 @@ def get_binning_from_hist(file_name, hist_name, plot_range, debug=False):
     while(binning[-1] < plot_range[1]):
         value = res_hist.Eval(binning[-1])
         value *= binning[-1]
-        if value < 1:
+        if value < min_binning:
             if debug:
-                print('appending 1, last value: %f'%binning[-1])
-            binning.append(binning[-1]+1)
+                print('appending %f, last value: %f'%(min_binning,binning[-1]))
+            binning.append(binning[-1]+min_binning)
         else:
             if debug:
                 print('appending %f, last value: %f'%(round(value),binning[-1]))
@@ -34,6 +34,18 @@ def get_binning_from_hist(file_name, hist_name, plot_range, debug=False):
     if debug:
         print(binning)
     return binning
+
+
+# output2015_7_29_14_53 -> data
+# 
+# output2015_7_30_14_0 -> data
+# output2015_7_31_10_28 -> data
+# 
+# output2015_7_31_11_21 -> data
+# 
+# output2015_8_3_17_34 -> data
+# output2015_8_4_17_55 -> MC
+
 
 basedir="/disk1/erdweg/out/output2015_7_21_14_52/merged/"
 lumi = 40.028
@@ -151,7 +163,7 @@ bghists.additionalWeight = {
 
 bghists.addFileList(bglist)
 
-dat_hist=HistStorage(xs,lumi,path='/disk1/erdweg/out/output2015_7_31_11_21/merged/',isData=True)
+dat_hist=HistStorage(xs,lumi,path='/disk1/erdweg/out/output2015_8_20_17_27/merged/',isData=True)
 dat_hist.addFile("Data_251027_251883_SingleMuon_v2")
 
 basedir="/disk1/erdweg/out/output2015_6_2_17_17/merged/"

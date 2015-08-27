@@ -66,25 +66,25 @@ def project_y(input_eff, firstbin_y = 0, lastbin_y = -1):
 
 def main():
 
-    basedir="/disk1/erdweg/out/output2015_7_27_14_14/merged/"
+    basedir="/disk1/erdweg/out/output2015_8_3_16_34/merged/"
 
     colors = ['lime', 'deepskyblue', 'magenta', 'orangered', 'lightblue', 'gray']
 
     bglist=OrderedDict()
 
-    # bglist = ['QCD_Pt-15TTo7000-Flat_13TeV_P6']
+    bglist = ['QCD_Pt-15TTo7000-Flat_13TeV_P6']
 
-    bglist = ['QCD_Pt_5to10_13TeV_P8',
-     'QCD_Pt_80to120_13TeV_P8',
-     'QCD_Pt_120to170_13TeV_P8',
-     'QCD_Pt_170to300_13TeV_P8',
-     'QCD_Pt_300to470_13TeV_P8',
-     'QCD_Pt_1000to1400_13TeV_P8',
-     'QCD_Pt_1400to1800_13TeV_P8',
-     'QCD_Pt_1800to2400_13TeV_P8',
-     'QCD_Pt_2400to3200_13TeV_P8',
-     'QCD_Pt_3200toInf_13TeV_P8',
-    ]
+    # bglist = ['QCD_Pt_5to10_13TeV_P8',
+     # 'QCD_Pt_80to120_13TeV_P8',
+     # 'QCD_Pt_120to170_13TeV_P8',
+     # 'QCD_Pt_170to300_13TeV_P8',
+     # 'QCD_Pt_300to470_13TeV_P8',
+     # 'QCD_Pt_1000to1400_13TeV_P8',
+     # 'QCD_Pt_1400to1800_13TeV_P8',
+     # 'QCD_Pt_1800to2400_13TeV_P8',
+     # 'QCD_Pt_2400to3200_13TeV_P8',
+     # 'QCD_Pt_3200toInf_13TeV_P8',
+    # ]
 
     hists2D=['JetFakeRate/eff_JetFakeRate_vs_pT_vs_eta'
     ]
