@@ -46,9 +46,10 @@ def get_binning_from_hist(file_name, hist_name, plot_range, debug=False, min_bin
 # output2015_8_3_17_34 -> data
 # output2015_8_4_17_55 -> MC
 
-
-basedir="/disk1/erdweg/out/output2015_7_21_14_52/merged/"
-lumi = 40.028
+# 
+basedir="/disk1/erdweg/television/BACKGROUND/merged/"
+lumi = 40.8 + 16.3
+# lumi = 10
 lumisc = float(lumi)/float(1000)
 
 xs= ConfigObj("/disk1/erdweg/plotting/xs_Phys14.cfg")
@@ -57,55 +58,52 @@ bghists=HistStorage(xs,lumi,xstype=None,path=basedir)
 bglist=OrderedDict()
 
 bglist["DY"]=[
- 'DYJetsToLL_M-10to50_13TeV-FXFX_MC',
- 'DYJetsToLL_M-50_13TeV-FXFX_MC',
- 'DYJetsToLL_M-100to200_13TeV-FXFX_MC',
- 'DYJetsToLL_M-200to400_13TeV-FXFX_MC',
- 'DYJetsToLL_M-400to500_13TeV-FXFX_MC',
- 'DYJetsToLL_M-500to700_13TeV-FXFX_MC',
- 'DYJetsToLL_M-700to800_13TeV-FXFX_MC',
- 'DYJetsToLL_M-800to1000_13TeV-FXFXRaw_MC',
- 'DYJetsToLL_M-1000to1500_13TeV-FXFX_MC',
- 'DYJetsToLL_M-1500to2000_13TeV-FXFX_MC',
- 'DYJetsToLL_M-2000to3000_13TeV-FXFX_MC',
+ 'ZToEE_NNPDF30_13TeV_M_50_120_PH-skimid1741',
+ 'ZToEE_NNPDF30_13TeV_M_120_200_PH-skimid1736',
+ 'ZToEE_NNPDF30_13TeV_M_200_400_PH-skimid1896',
+ 'ZToEE_NNPDF30_13TeV_M_400_800_PH-skimid1730',
+ 'ZToEE_NNPDF30_13TeV_M_800_1400_PH-skimid1740',
+ 'ZToEE_NNPDF30_13TeV_M_1400_2300_PH-skimid1794',
+ 'ZToEE_NNPDF30_13TeV_M_3500_4500_PH-skimid1770',
+ 'ZToEE_NNPDF30_13TeV_M_6000_Inf_PH-skimid1726',
+ 'ZToMuMu_NNPDF30_13TeV_M_50_120_PH-skimid1752',
+ 'ZToMuMu_NNPDF30_13TeV_M_200_400_PH-skimid1727',
+ 'ZToMuMu_NNPDF30_13TeV_M_400_800_PH-skimid1728',
+ 'ZToMuMu_NNPDF30_13TeV_M_800_1400_PH-skimid1837',
+ 'ZToMuMu_NNPDF30_13TeV_M_3500_4500_PH-skimid1737',
+ 'ZToMuMu_NNPDF30_13TeV_M_4500_6000_PH-skimid1902',
+ 'ZToMuMu_NNPDF30_13TeV_M_6000_Inf_PH-skimid1772',
 ]
 bglist["W"]=[
- 'WJetsToLNu_13TeV-FXFX_MC',
- 'WJetsToLNu_HT-100To200_13TeVMLM_MG',
- 'WJetsToLNu_HT-200To400_13TeVMLM_MG',
- 'WJetsToLNu_HT-400To600_13TeVMLM_MG',
- 'WJetsToLNu_HT-600ToInf_13TeVMLM_MG',
+ 'WJetsToLNu_HT-100To200_13TeVMLM_MG-skimid2018',
+ 'WJetsToLNu_HT-400To600_13TeVMLM_MG-skimid2017',
+ 'WJetsToLNu_HT-600To800_13TeVMLM_MG-skimid2019',
+ 'WJetsToLNu_HT-800To1200_13TeVMLM_MG-skimid2005',
+ 'WJetsToLNu_HT-2500ToInf_13TeVMLM_MG-skimid1863',
 ]
 bglist["single Top"]=[
- 'ST_t-channel_4f_leptonDecays_13TeV-_MC',
- 'ST_tW_top_5f_inclusiveDecays_13TeV_PH',
- 'ST_t-channel_5f_leptonDecays_13TeV-_MC',
- 'ST_s-channel_4f_leptonDecays_13TeV-_MC',
- 'ST_tW_antitop_5f_inclusiveDecays_13TeV_PH',
+ 'ST_tW_antitop_5f_inclusiveDecays_13TeV_PH-skimid1885',
+ 'ST_tW_top_5f_inclusiveDecays_13TeV_PH-skimid1738',
+ 'ST_t-channel_antitop_4f_leptonDecays_13TeV_PH-skimid1739',
+ 'ST_t-channel_top_4f_leptonDecays_13TeV_PH-skimid1972',
 ]
 bglist["QCD jet"]=[
- 'QCD_Pt-15to20_MuEnrichedPt5_13TeV_P8',
- 'QCD_Pt-20to30_MuEnrichedPt5_13TeV_P8',
- 'QCD_Pt-20toInf_MuEnrichedPt15_13TeV_P8',
- 'QCD_Pt-30to50_MuEnrichedPt5_13TeV_P8',
- 'QCD_Pt-50to80_MuEnrichedPt5_13TeV_P8',
- 'QCD_Pt-80to120_MuEnrichedPt5_13TeV_P8',
- 'QCD_Pt-120to170_MuEnrichedPt5_13TeV_P8',
- 'QCD_Pt-170to300_MuEnrichedPt5_13TeV_P8',
- 'QCD_Pt-300to470_MuEnrichedPt5_13TeV_P8',
- 'QCD_Pt-470to600_MuEnrichedPt5_13TeV_P8',
- 'QCD_Pt-600to800_MuEnrichedPt5_13TeV_P8',
- 'QCD_Pt-800to1000_MuEnrichedPt5_13TeV_P8',
- 'QCD_Pt-1000toInf_MuEnrichedPt5_13TeV_P8',
+ 'QCD_Pt-20to30_MuEnrichedPt5_13TeV_P8-skimid1868',
+ 'QCD_Pt-80to120_MuEnrichedPt5_13TeV_P8-skimid1805',
+ 'QCD_Pt-120to170_MuEnrichedPt5_13TeV_P8-skimid1882',
+ 'QCD_Pt-1000toInf_MuEnrichedPt5_13TeV_P8-skimid1930',
 ]
 bglist["Diboson"]=[
- 'WW_13TeV_P8',
- 'WZ_13TeV_P8',
- 'ZZ_13TeV_P8'
+ 'WWTo2L2Nu_13TeV_PH-skimid1905',
+ 'WWTo4Q_13TeV_PH-skimid1821',
+ 'WWToLNuQQ_13TeV_PH-skimid1818',
+ 'WZTo3LNu_13TeV_PH-skimid1903',
+ 'ZZTo2L2Nu_13TeV_PH-skimid1970',
+ 'ZZTo4L_13TeV_PH-skimid1898',
 ]
 bglist["TTbar"]=[
- 'TT_13TeV_PH',
- 'TT_Mtt-1000toInf_13TeV_MCRUN2_74_V9_ext1-v2_PH',
+ 'TT_13TeV_MCRUN2_74_V9_ext3-v1_PH-skimid1978',
+ 'TT_Mtt-1000toInf_13TeV_MCRUN2_74_V9_ext1-v2_PH-skimid1749',
 ]
 
 colorList={}
@@ -120,64 +118,63 @@ colorList['RPV M=500']="magenta"
 colorList['RPV M=1000']="red"
 
 bghists.additionalWeight = {
- 'DYJetsToLL_M-10to50_13TeV-FXFX_MC':lumisc,
- 'DYJetsToLL_M-50_13TeV-FXFX_MC':lumisc,
- 'DYJetsToLL_M-100to200_13TeV-FXFX_MC':lumisc,
- 'DYJetsToLL_M-200to400_13TeV-FXFX_MC':lumisc,
- 'DYJetsToLL_M-400to500_13TeV-FXFX_MC':lumisc,
- 'DYJetsToLL_M-500to700_13TeV-FXFX_MC':lumisc,
- 'DYJetsToLL_M-700to800_13TeV-FXFX_MC':lumisc,
- 'DYJetsToLL_M-800to1000_13TeV-FXFXRaw_MC':lumisc,
- 'DYJetsToLL_M-1000to1500_13TeV-FXFX_MC':lumisc,
- 'DYJetsToLL_M-1500to2000_13TeV-FXFX_MC':lumisc,
- 'DYJetsToLL_M-2000to3000_13TeV-FXFX_MC':lumisc,
- 'WJetsToLNu_13TeV-FXFX_MC':lumisc,
- 'WJetsToLNu_HT-100To200_13TeVMLM_MG':lumisc,
- 'WJetsToLNu_HT-200To400_13TeVMLM_MG':lumisc,
- 'WJetsToLNu_HT-400To600_13TeVMLM_MG':lumisc,
- 'WJetsToLNu_HT-600ToInf_13TeVMLM_MG':lumisc,
- 'ST_t-channel_4f_leptonDecays_13TeV-_MC':lumisc,
- 'ST_tW_top_5f_inclusiveDecays_13TeV_PH':lumisc,
- 'ST_t-channel_5f_leptonDecays_13TeV-_MC':lumisc,
- 'ST_s-channel_4f_leptonDecays_13TeV-_MC':lumisc,
- 'ST_tW_antitop_5f_inclusiveDecays_13TeV_PH':lumisc,
- 'QCD_Pt-15to20_MuEnrichedPt5_13TeV_P8':lumisc,
- 'QCD_Pt-20to30_MuEnrichedPt5_13TeV_P8':lumisc,
- 'QCD_Pt-20toInf_MuEnrichedPt15_13TeV_P8':lumisc,
- 'QCD_Pt-30to50_MuEnrichedPt5_13TeV_P8':lumisc,
- 'QCD_Pt-50to80_MuEnrichedPt5_13TeV_P8':lumisc,
- 'QCD_Pt-80to120_MuEnrichedPt5_13TeV_P8':lumisc,
- 'QCD_Pt-120to170_MuEnrichedPt5_13TeV_P8':lumisc,
- 'QCD_Pt-170to300_MuEnrichedPt5_13TeV_P8':lumisc,
- 'QCD_Pt-300to470_MuEnrichedPt5_13TeV_P8':lumisc,
- 'QCD_Pt-470to600_MuEnrichedPt5_13TeV_P8':lumisc,
- 'QCD_Pt-600to800_MuEnrichedPt5_13TeV_P8':lumisc,
- 'QCD_Pt-800to1000_MuEnrichedPt5_13TeV_P8':lumisc,
- 'QCD_Pt-1000toInf_MuEnrichedPt5_13TeV_P8':lumisc,
- 'WW_13TeV_P8':lumisc,
- 'WZ_13TeV_P8':lumisc,
- 'ZZ_13TeV_P8':lumisc,
- 'TT_13TeV_PH':lumisc,
- 'TT_Mtt-1000toInf_13TeV_MCRUN2_74_V9_ext1-v2_PH':lumisc,
+ 'ZToEE_NNPDF30_13TeV_M_50_120_PH-skimid1741':lumisc,
+ 'ZToEE_NNPDF30_13TeV_M_120_200_PH-skimid1736':lumisc,
+ 'ZToEE_NNPDF30_13TeV_M_200_400_PH-skimid1896':lumisc,
+ 'ZToEE_NNPDF30_13TeV_M_400_800_PH-skimid1730':lumisc,
+ 'ZToEE_NNPDF30_13TeV_M_800_1400_PH-skimid1740':lumisc,
+ 'ZToEE_NNPDF30_13TeV_M_1400_2300_PH-skimid1794':lumisc,
+ 'ZToEE_NNPDF30_13TeV_M_3500_4500_PH-skimid1770':lumisc,
+ 'ZToEE_NNPDF30_13TeV_M_6000_Inf_PH-skimid1726':lumisc,
+ 'ZToMuMu_NNPDF30_13TeV_M_50_120_PH-skimid1752':lumisc,
+ 'ZToMuMu_NNPDF30_13TeV_M_200_400_PH-skimid1727':lumisc,
+ 'ZToMuMu_NNPDF30_13TeV_M_400_800_PH-skimid1728':lumisc,
+ 'ZToMuMu_NNPDF30_13TeV_M_800_1400_PH-skimid1837':lumisc,
+ 'ZToMuMu_NNPDF30_13TeV_M_3500_4500_PH-skimid1737':lumisc,
+ 'ZToMuMu_NNPDF30_13TeV_M_4500_6000_PH-skimid1902':lumisc,
+ 'ZToMuMu_NNPDF30_13TeV_M_6000_Inf_PH-skimid1772':lumisc,
+ 'WJetsToLNu_HT-100To200_13TeVMLM_MG-skimid2018':lumisc,
+ 'WJetsToLNu_HT-400To600_13TeVMLM_MG-skimid2017':lumisc,
+ 'WJetsToLNu_HT-600To800_13TeVMLM_MG-skimid2019':lumisc,
+ 'WJetsToLNu_HT-800To1200_13TeVMLM_MG-skimid2005':lumisc,
+ 'WJetsToLNu_HT-2500ToInf_13TeVMLM_MG-skimid1863':lumisc,
+ 'ST_tW_antitop_5f_inclusiveDecays_13TeV_PH-skimid1885':lumisc,
+ 'ST_tW_top_5f_inclusiveDecays_13TeV_PH-skimid1738':lumisc,
+ 'ST_t-channel_antitop_4f_leptonDecays_13TeV_PH-skimid1739':lumisc,
+ 'ST_t-channel_top_4f_leptonDecays_13TeV_PH-skimid1972':lumisc,
+ 'QCD_Pt-20to30_MuEnrichedPt5_13TeV_P8-skimid1868':lumisc,
+ 'QCD_Pt-80to120_MuEnrichedPt5_13TeV_P8-skimid1805':lumisc,
+ 'QCD_Pt-120to170_MuEnrichedPt5_13TeV_P8-skimid1882':lumisc,
+ 'QCD_Pt-1000toInf_MuEnrichedPt5_13TeV_P8-skimid1930':lumisc,
+ 'WWTo2L2Nu_13TeV_PH-skimid1905':lumisc,
+ 'WWTo4Q_13TeV_PH-skimid1821':lumisc,
+ 'WWToLNuQQ_13TeV_PH-skimid1818':lumisc,
+ 'WZTo3LNu_13TeV_PH-skimid1903':lumisc,
+ 'ZZTo2L2Nu_13TeV_PH-skimid1970':lumisc,
+ 'ZZTo4L_13TeV_PH-skimid1898':lumisc,
+ 'TT_13TeV_MCRUN2_74_V9_ext3-v1_PH-skimid1978':lumisc,
+ 'TT_Mtt-1000toInf_13TeV_MCRUN2_74_V9_ext1-v2_PH-skimid1749':lumisc,
 }
 
 bghists.addFileList(bglist)
 
-dat_hist=HistStorage(xs,lumi,path='/disk1/erdweg/out/output2015_8_20_17_27/merged/',isData=True)
-dat_hist.addFile("Data_251027_251883_SingleMuon_v2")
+dat_hist=HistStorage(xs,lumi,path="/disk1/erdweg/television/DATA/merged/",isData=True)
+dat_hist.addFile("allData")
+# dat_hist.addFile("Data_Run2015B-PromptReco_251162_252126_SingleMuon-skimid81")
+# dat_hist.addFile("Data_Run2015C-PromptReco_253888_254914_SingleMuon-skimid48")
 
-basedir="/disk1/erdweg/out/output2015_6_2_17_17/merged/"
-sghist=HistStorage(xs,lumi,path=basedir)
+basedir="/disk1/erdweg/television/SIGNAL/merged/"
+sghist=HistStorage(xs,lumi,path=basedir,xstype=None)
 sglist=OrderedDict()
 
 sglist['RPV M=500']=[
- 'RPVresonantToEMu_M-500_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8',
+ 'RPVresonantToEMu_M-500_LLE_LQD-001_13TeV_CA-skimid1827',
 ]
 sglist['RPV M=1000']=[
- 'RPVresonantToEMu_M-1000_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8',
+ 'RPVresonantToEMu_M-1000_LLE_LQD-001_13TeV_CA-skimid1891',
 ]
-# sghist.additionalWeight = {'RPVresonantToEMu_M-500_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8':lumisc}
-# sghist.additionalWeight.update({'RPVresonantToEMu_M-1000_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8':lumisc})
+sghist.additionalWeight = {'RPVresonantToEMu_M-500_LLE_LQD-001_13TeV_CA-skimid1827':lumisc}
+sghist.additionalWeight.update({'RPVresonantToEMu_M-1000_LLE_LQD-001_13TeV_CA-skimid1891':lumisc})
 sghist.addFileList(sglist)
 histContainer=HistStorageContainer(bg=bghists,data=dat_hist,sg=sghist)
 

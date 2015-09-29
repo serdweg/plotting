@@ -37,7 +37,7 @@ def main():
         # dat_hist.getHistList()[0].SetTitle("data")
 
         hist_style = sc.style_container(style = 'CMS', useRoot = False,cms=13,lumi=lumi, cmsPositon = "upper left", legendPosition = 'upper right')
-        hist_style.Set_n_legend_collumns(2)
+        hist_style.Set_n_legend_columns(2)
 
         dummy = bghists.getAllAdded()
         dummy.xaxis.SetTitle('')

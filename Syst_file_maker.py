@@ -4,7 +4,7 @@ from plot_inputs import *
 import ROOT as r
 
 def fit_histo(hist,function='exp([0]*x+[1] + [3] * x * x) * x^[2]',funcbeg=180,funcend=2000,fitbeg=150,fitend=1100):
-    # return hist
+    return hist
     hist_rb = hist.Clone('tb_fitted')
     hist_rb.rebin(10)
     hist_rb.Scale(0.1)
@@ -127,7 +127,7 @@ def main():
             continue
 
         # print('integral 1: %f'%allbg.integral())
-        allbg = fit_histo(allbg)
+        # allbg = fit_histo(allbg)
         # print('integral 2: %f'%allbg.integral())
         binning = get_binning_from_hist('res_unc.root','func',[0,4000],min_binning = 5)
         rebinnedHist=allbg.rebinned(binning)

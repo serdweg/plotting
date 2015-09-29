@@ -36,7 +36,7 @@ def make_individual_res_plot():
 
 def main():
 
-    basedir="/disk1/erdweg/out/output2015_5_26_17_52/merged/"
+    basedir="/disk1/erdweg/television/SIGNAL/merged/"
     # lumi=19712
 
     # xs= ConfigObj("/disk1/erdweg/plotting/xs_Phys14.cfg")
@@ -47,36 +47,88 @@ def main():
     bglist=OrderedDict()
 
     bglist = [
-     'RPVresonantToEMu_M-200_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8',
-     'RPVresonantToEMu_M-500_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8',
-     'RPVresonantToEMu_M-1000_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8',
-     'RPVresonantToEMu_M-1400_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8',
-     'RPVresonantToEMu_M-2000_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8',
-     'RPVresonantToEMu_M-3000_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8',
-     'RPVresonantToEMu_M-4000_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8',
-     'RPVresonantToEMu_M-4000_LLE_LQD_01_TuneCUETP8M1_13TeV-calchep-pythia8',
-     'RPVresonantToEMu_M-4000_LLE_LQD_02_TuneCUETP8M1_13TeV-calchep-pythia8',
-     'RPVresonantToEMu_M-4000_LLE_LQD_05_TuneCUETP8M1_13TeV-calchep-pythia8',
-     'RPVresonantToEMu_M-5000_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8',
-     'RPVresonantToEMu_M-6000_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8'
+     'RPVresonantToEMu_M-200_LLE_LQD-001_13TeV_CA-skimid1965',
+     'RPVresonantToEMu_M-300_LLE_LQD-001_13TeV_CA-skimid1829',
+     'RPVresonantToEMu_M-400_LLE_LQD-001_13TeV_CA-skimid1954',
+     'RPVresonantToEMu_M-500_LLE_LQD-001_13TeV_CA-skimid1827',
+     'RPVresonantToEMu_M-600_LLE_LQD-001_13TeV_CA-skimid1888',
+     'RPVresonantToEMu_M-700_LLE_LQD-001_13TeV_CA-skimid1884',
+     'RPVresonantToEMu_M-800_LLE_LQD-001_13TeV_CA-skimid1935',
+     'RPVresonantToEMu_M-900_LLE_LQD-001_13TeV_CA-skimid1966',
+     'RPVresonantToEMu_M-1000_LLE_LQD-001_13TeV_CA-skimid1891',
+     'RPVresonantToEMu_M-1200_LLE_LQD-001_13TeV_CA-skimid1892',
+     'RPVresonantToEMu_M-1400_LLE_LQD-001_13TeV_CA-skimid1857',
+     'RPVresonantToEMu_M-1600_LLE_LQD-001_13TeV_CA-skimid1859',
+     'RPVresonantToEMu_M-1800_LLE_LQD-001_13TeV_CA-skimid1834',
+     'RPVresonantToEMu_M-2000_LLE_LQD-001_13TeV_CA-skimid1831',
+     'RPVresonantToEMu_M-2500_LLE_LQD-001_13TeV_CA-skimid1974',
+     'RPVresonantToEMu_M-3000_LLE_LQD-01_13TeV_CA-skimid1835',
+     'RPVresonantToEMu_M-3000_LLE_LQD-001_13TeV_CA-skimid1960',
+     'RPVresonantToEMu_M-3500_LLE_LQD-001_13TeV_CA-skimid1889',
+     'RPVresonantToEMu_M-3500_LLE_LQD-01_13TeV_CA-skimid2064',
+     'RPVresonantToEMu_M-4000_LLE_LQD-001_13TeV_CA-skimid1833',
+     'RPVresonantToEMu_M-4000_LLE_LQD-01_13TeV_CA-skimid1984',
+     'RPVresonantToEMu_M-4000_LLE_LQD-02_13TeV_CA-skimid1929',
+     'RPVresonantToEMu_M-4000_LLE_LQD-05_13TeV_CA-skimid1976',
+     'RPVresonantToEMu_M-4500_LLE_LQD-001_13TeV_CA-skimid1832',
+     'RPVresonantToEMu_M-4500_LLE_LQD-02_13TeV_CA-skimid1964',
+     'RPVresonantToEMu_M-4500_LLE_LQD-05_13TeV_CA-skimid1977',
+     'RPVresonantToEMu_M-5000_LLE_LQD-001_13TeV_CA-skimid1983',
+     'RPVresonantToEMu_M-5000_LLE_LQD-02_13TeV_CA-skimid1975',
+     'RPVresonantToEMu_M-5000_LLE_LQD-05_13TeV_CA-skimid1828',
+     'RPVresonantToEMu_M-5500_LLE_LQD-001_13TeV_CA-skimid1869',
+     'RPVresonantToEMu_M-5500_LLE_LQD-02_13TeV_CA-skimid1858',
+     'RPVresonantToEMu_M-5500_LLE_LQD-05_13TeV_CA-skimid1830',
+     'RPVresonantToEMu_M-6000_LLE_LQD-001_13TeV_CA-skimid1887',
+     'RPVresonantToEMu_M-6000_LLE_LQD-02_13TeV_CA-skimid1927',
+     'RPVresonantToEMu_M-6000_LLE_LQD-05_13TeV_CA-skimid1890',
+     'RPVresonantToEMu_M-6500_LLE_LQD-001_13TeV_CA-skimid1967',
+     'RPVresonantToEMu_M-6500_LLE_LQD-02_13TeV_CA-skimid1873',
+     'RPVresonantToEMu_M-6500_LLE_LQD-05_13TeV_CA-skimid1886',
     ]
 
     colorList={}
-    colorList['RPVresonantToEMu_M-200_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8'] = 'lightblue'
-    colorList['RPVresonantToEMu_M-500_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8'] = 'lightblue'
-    colorList['RPVresonantToEMu_M-1000_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8'] = 'lightblue'
-    colorList['RPVresonantToEMu_M-1400_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8'] = 'lightblue'
-    colorList['RPVresonantToEMu_M-2000_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8'] = 'lightblue'
-    colorList['RPVresonantToEMu_M-3000_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8'] = 'lightblue'
-    colorList['RPVresonantToEMu_M-4000_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8'] = 'lightblue'
-    colorList['RPVresonantToEMu_M-4000_LLE_LQD_01_TuneCUETP8M1_13TeV-calchep-pythia8'] = 'lightblue'
-    colorList['RPVresonantToEMu_M-4000_LLE_LQD_02_TuneCUETP8M1_13TeV-calchep-pythia8'] = 'lightblue'
-    colorList['RPVresonantToEMu_M-4000_LLE_LQD_05_TuneCUETP8M1_13TeV-calchep-pythia8'] = 'lightblue'
-    colorList['RPVresonantToEMu_M-5000_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8'] = 'lightblue'
-    colorList['RPVresonantToEMu_M-6000_LLE_LQD_001_TuneCUETP8M1_13TeV-calchep-pythia8'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-200_LLE_LQD-001_13TeV_CA-skimid1965'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-300_LLE_LQD-001_13TeV_CA-skimid1829'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-400_LLE_LQD-001_13TeV_CA-skimid1954'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-500_LLE_LQD-001_13TeV_CA-skimid1827'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-600_LLE_LQD-001_13TeV_CA-skimid1888'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-700_LLE_LQD-001_13TeV_CA-skimid1884'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-800_LLE_LQD-001_13TeV_CA-skimid1935'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-900_LLE_LQD-001_13TeV_CA-skimid1966'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-1000_LLE_LQD-001_13TeV_CA-skimid1891'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-1200_LLE_LQD-001_13TeV_CA-skimid1892'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-1400_LLE_LQD-001_13TeV_CA-skimid1857'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-1600_LLE_LQD-001_13TeV_CA-skimid1859'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-1800_LLE_LQD-001_13TeV_CA-skimid1834'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-2000_LLE_LQD-001_13TeV_CA-skimid1831'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-2500_LLE_LQD-001_13TeV_CA-skimid1974'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-3000_LLE_LQD-01_13TeV_CA-skimid1835'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-3000_LLE_LQD-001_13TeV_CA-skimid1960'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-3500_LLE_LQD-001_13TeV_CA-skimid1889'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-3500_LLE_LQD-01_13TeV_CA-skimid2064'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-4000_LLE_LQD-001_13TeV_CA-skimid1833'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-4000_LLE_LQD-01_13TeV_CA-skimid1984'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-4000_LLE_LQD-02_13TeV_CA-skimid1929'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-4000_LLE_LQD-05_13TeV_CA-skimid1976'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-4500_LLE_LQD-001_13TeV_CA-skimid1832'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-4500_LLE_LQD-02_13TeV_CA-skimid1964'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-4500_LLE_LQD-05_13TeV_CA-skimid1977'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-5000_LLE_LQD-001_13TeV_CA-skimid1983'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-5000_LLE_LQD-02_13TeV_CA-skimid1975'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-5000_LLE_LQD-05_13TeV_CA-skimid1828'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-5500_LLE_LQD-001_13TeV_CA-skimid1869'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-5500_LLE_LQD-02_13TeV_CA-skimid1858'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-5500_LLE_LQD-05_13TeV_CA-skimid1830'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-6000_LLE_LQD-001_13TeV_CA-skimid1887'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-6000_LLE_LQD-02_13TeV_CA-skimid1927'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-6000_LLE_LQD-05_13TeV_CA-skimid1890'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-6500_LLE_LQD-001_13TeV_CA-skimid1967'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-6500_LLE_LQD-02_13TeV_CA-skimid1873'] = 'lightblue'
+    colorList['RPVresonantToEMu_M-6500_LLE_LQD-05_13TeV_CA-skimid1886'] = 'lightblue'
 
-    hists=['HLT_Effs/eff_HLT_HLT_Mu40_v1_vs_Nvtx',
-     'HLT_Effs/eff_HLT_HLT_Mu40_v1_vs_pT(Mu)',
+    hists=['HLT_Effs/eff_HLT_HLT_Mu50_v1_vs_Nvtx',
+     'HLT_Effs/eff_HLT_HLT_Mu50_v1_vs_pT(Mu)',
      #'HLT_Effs/eff_HLT_HLT_Mu30_TkMu11_v1_vs_Nvtx',
      #'HLT_Effs/eff_HLT_HLT_Mu23_TrkIsoVVL_Ele12_Gsf_CaloId_TrackId_Iso_MediumWP_v1_vs_Nvtx',
      #'HLT_Effs/eff_HLT_HLT_Mu17_TrkIsoVVL_TkMu8_TrkIsoVVL_v1_vs_Nvtx',
@@ -139,7 +191,7 @@ def main():
     eff_colorList['emu/eff_emu_RECO_vs_Nvtx'] = 'darkgreen'
     eff_colorList['emu/eff_emu_Eff_vs_Nvtx'] = 'red'
 
-    hists2D=['HLT_Effs/eff_HLT_HLT_Mu40_v1_vs_eta_vs_phi(Mu)',
+    hists2D=['HLT_Effs/eff_HLT_HLT_Mu50_v1_vs_eta_vs_phi(Mu)',
      #'HLT_Effs/eff_HLT_HLT_Mu30_TkMu11_v1_vs_eta_vs_phi(Mu)',
      #'HLT_Effs/eff_HLT_HLT_Mu30_TkMu11_v1_vs_pT(Mu,Mu)',
      #'HLT_Effs/eff_HLT_HLT_Mu23_TrkIsoVVL_Ele12_Gsf_CaloId_TrackId_Iso_MediumWP_v1_vs_eta_vs_phi(Ele)',
@@ -200,8 +252,8 @@ def main():
     }
 
     titles={
-     'HLT_Effs/eff_HLT_HLT_Mu40_v1_vs_Nvtx':['HLT_Mu40_v1 efficiency','$N_{vtx}$','efficiency $\epsilon$'],
-     'HLT_Effs/eff_HLT_HLT_Mu40_v1_vs_pT(Mu)':['HLT_Mu40_v1 efficiency','$p_{T}^{\mu}\,(\mathrm{GeV})$','efficiency $\epsilon$'],
+     'HLT_Effs/eff_HLT_HLT_Mu50_v1_vs_Nvtx':['HLT_Mu50_v1 efficiency','$N_{vtx}$','efficiency $\epsilon$'],
+     'HLT_Effs/eff_HLT_HLT_Mu50_v1_vs_pT(Mu)':['HLT_Mu50_v1 efficiency','$p_{T}^{\mu}\,(\mathrm{GeV})$','efficiency $\epsilon$'],
      'RECO_Effs/eff_Ele_RECO_vs_Nvtx':['Electron reco efficiency','$N_{vtx}$','efficiency $\epsilon$'],
      'RECO_Effs/eff_Ele_RECO_vs_pT':['Electron reco efficiency','$p_{T}^{e (gen)}\,(\mathrm{GeV})$','efficiency $\epsilon$'],
      'RECO_Effs/eff_Muon_RECO_vs_Nvtx':['Muon reco efficiency','$N_{vtx}$','efficiency $\epsilon$'],
@@ -219,15 +271,14 @@ def main():
      'emu/eff_emu_RECO_vs_Nvtx':['Trigger','$N_{vtx}$','efficiency $\epsilon$'],
      'emu/eff_emu_Eff_vs_Nvtx':['Selection','$N_{vtx}$','efficiency $\epsilon$'],
      'emu/Stage_0/h1_0_emu_Mass_resolution':['Mass resolution','$M_{e\mu, gen}\,\,\mathrm{(GeV)}$','$\sigma((M_{e\mu, reco} - M_{e\mu, gen}) / M_{e\mu, gen})$'],
-
     }
 
     yranges={
-     'ID_Effs/eff_Muon_ID_vs_pT':[0.8,1.02],
-     'ID_Effs/eff_Muon_ID_vs_pT_gen':[0.8,1.02],
-     'ID_Effs/eff_Muon_ID_vs_pT_in_Acc':[0.8,1.02],
-     'ID_Effs/eff_Muon_ID_vs_pT_in_Acc_gen':[0.8,1.02],
-     'HLT_Effs/eff_HLT_HLT_Mu40_v1_vs_pT(Mu)':[0.6,1.02],
+     'ID_Effs/eff_Muon_ID_vs_pT':[0.5,1.02],
+     'ID_Effs/eff_Muon_ID_vs_pT_gen':[0.5,1.02],
+     'ID_Effs/eff_Muon_ID_vs_pT_in_Acc':[0.5,1.02],
+     'ID_Effs/eff_Muon_ID_vs_pT_in_Acc_gen':[0.5,1.02],
+     'HLT_Effs/eff_HLT_HLT_Mu50_v1_vs_pT(Mu)':[0.6,1.02],
      'ID_Effs/eff_Ele_ID_vs_pT':[0.7,1.02],
      'ID_Effs/eff_Ele_ID_vs_pT_gen':[0.7,1.02],
      'ID_Effs/eff_Ele_ID_vs_pT_in_Acc':[0.7,1.02],
@@ -274,7 +325,7 @@ def main():
     
             hist_style = sc.style_container(style = 'CMS', useRoot = False, kind = 'Graphs', cmsPositon = "upper left", legendPosition = 'lower middle', lumi = 0, cms = 13)
 
-            hist_style.Set_additional_text('PHYS14 simulation')
+            hist_style.Set_additional_text('Spring15 simulation')
             hist_style.Set_legend_font_size(12)
 
             test = plotter(hist = histlist,style=hist_style)
@@ -397,7 +448,7 @@ def main():
 
             hist_style = sc.style_container(style = 'CMS', useRoot = False, kind = 'Graphs', cmsPositon = "upper left", legendPosition = 'lower middle', lumi = 0, cms = 13)
 
-            hist_style.Set_additional_text('PHYS14 simulation')
+            hist_style.Set_additional_text('Spring15 simulation')
             hist_style.Set_legend_font_size(12)
 
             test = plotter(hist = plots, style = hist_style)
@@ -415,10 +466,10 @@ def main():
             test.make_plot('plots/%s.pdf'%(name))
 
     ####################################################################
-    # Combined 1D plots vor overall efficiencies
+    # Combined 1D plots for overall efficiencies
     ####################################################################
 
-    if False:
+    if True:
         for hist in overall_hists:
             print("Now plotting: " + hist[0])
 
@@ -464,7 +515,7 @@ def main():
 
             hist_style = sc.style_container(style = 'CMS', useRoot = False, kind = 'Graphs', cmsPositon = "upper left", legendPosition = 'lower middle', lumi = 0, cms = 13)
 
-            hist_style.Set_additional_text('PHYS14 simulation')
+            hist_style.Set_additional_text('Spring15 simulation')
             hist_style.Set_legend_font_size(12)
 
             test = plotter(hist = hists_to_plot, style = hist_style)
@@ -506,7 +557,7 @@ def main():
 
                 hist_style = sc.style_container(style = 'CMS', useRoot = False, kind = 'Standard', cmsPositon = "outside left", legendPosition = 'lower middle', lumi = 0, cms = 13)
     
-                hist_style.Set_additional_text('PHYS14 simulation')
+                hist_style.Set_additional_text('Spring15 simulation')
     
                 test = plotter2D(hist = t_eff, style = hist_style)
     
@@ -542,7 +593,7 @@ def main():
 
             hist_style = sc.style_container(style = 'CMS', useRoot = False, kind = 'Standard', cmsPositon = "outside left", legendPosition = 'lower middle', lumi = 0, cms = 13)
 
-            hist_style.Set_additional_text('PHYS14 simulation')
+            hist_style.Set_additional_text('Spring15 simulation')
 
             test = plotter2D(hist = c_histo, style = hist_style)
 
@@ -577,7 +628,7 @@ def main():
 
             hist_style = sc.style_container(style = 'CMS', useRoot = False, kind = 'Standard', cmsPositon = "outside left", legendPosition = 'lower middle', lumi = 0, cms = 13)
 
-            hist_style.Set_additional_text('PHYS14 simulation')
+            hist_style.Set_additional_text('Spring15 simulation')
 
             test = plotter2D(hist = c_histo, style = hist_style)
             # test.Add_x_projection()
@@ -603,7 +654,7 @@ def main():
             y_vals = []
             y_errs = []
             for item in bglist:
-                if 'LLE_LQD_001' not in item:
+                if 'LLE_LQD-001' not in item:
                     continue
                 tfile = root_open(basedir + item + ".root", "READ")
                 t_eff = tfile.Get(hist)
@@ -611,7 +662,7 @@ def main():
                 t_eff.yaxis.SetTitle('Events / %.2f'%t_eff.GetBinWidth(1))
 
                 hist_style = sc.style_container(style = 'CMS', useRoot = False, kind = 'Graphs', cmsPositon = "upper left", legendPosition = 'lower left', lumi = 0, cms = 13)
-                hist_style.Set_additional_text('PHYS14 simulation')
+                hist_style.Set_additional_text('Spring15 simulation')
                 test = plotter(hist = [t_eff],style=hist_style)
                 name=item.replace("/","")
                 test.Set_axis(logy = True, grid = True, xmin = -1.01, xmax = 1.01, ymin = 0.9, ymax = 4000)
@@ -649,7 +700,7 @@ def main():
 
             hist_style = sc.style_container(style = 'CMS', useRoot = False, kind = 'Graphs', cmsPositon = "upper left", legendPosition = 'lower left', lumi = 0, cms = 13)
 
-            hist_style.Set_additional_text('PHYS14 simulation')
+            hist_style.Set_additional_text('Spring15 simulation')
 
             test = plotter(hist = [graph],style=hist_style)
 

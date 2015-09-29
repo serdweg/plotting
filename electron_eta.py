@@ -33,7 +33,7 @@ def main():
             sghist.rebin(width=binf)
 
         hist_style = sc.style_container(style = 'CMS', useRoot = False,cms=13,lumi=lumi, cmsPositon = "upper left", legendPosition = 'upper right')
-        hist_style.Set_n_legend_collumns(2)
+        hist_style.Set_n_legend_columns(2)
 
         dummy = bghists.getAllAdded()
         dummy.xaxis.SetTitle('')
@@ -58,7 +58,7 @@ def main():
             # test.Add_error_hist([sys_file.Get('MC statistic')], band_center = 'ref', stacking = 'Nosum')
 
         test.Add_plot('Diff',pos=0, height=12)
-
+# 
         test.Add_plot('DiffRatio',pos=1, height=12)
         test.Add_plot('Signi',pos=2, height=12)
 # 
