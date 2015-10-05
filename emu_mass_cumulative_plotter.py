@@ -28,6 +28,7 @@ def main():
     for hist in hists:
         print("Now plotting: " + hist)
         histContainer.getHist(hist)
+        histContainer.makeCumulative()
 
         binf=getDictValue(hist,binning)
         if binf is not None:
@@ -36,7 +37,7 @@ def main():
             sghist.rebin(width=1,vector=binf)
 
         hist_style = sc.style_container(style = 'CMS', useRoot = False,cms=13,lumi=lumi, cmsPositon = 'upper left')
-        hist_style.Set_n_legend_columns(3)
+        hist_style.Set_n_legend_columns(2)
 
         dummy = bghists.getAllAdded()
         dummy.xaxis.SetTitle('')
@@ -53,26 +54,26 @@ def main():
         if hist == 'emu/Stage_0/h1_0_emu_Mass':
             sys_file=File('syst/for_plotting.root', "read")
         
-            test.Add_error_hist([sys_file.Get('Sys'),sys_file.Get('MC statistic')], band_center = 'ref', stacking = 'Nosum')
+            # test.Add_error_hist([sys_file.Get('Sys'),sys_file.Get('MC statistic')], band_center = 'ref', stacking = 'Nosum')
             # test.Add_error_hist([sys_file.Get('MC statistic')], band_center = 'ref', stacking = 'Nosum')
 
-        test.Add_plot('Diff',pos=0, height=12)
+        # test.Add_plot('Diff',pos=0, height=12)
 
         test.Add_plot('DiffRatio',pos=1, height=12)
-        test.Add_plot('Signi',pos=2, height=12)
+        # test.Add_plot('Signi',pos=2, height=12)
 
         if hist in xranges.keys():
-            test.Set_axis(logx=True,logy=True,xmin=xranges[hist][0],xmax=xranges[hist][1],ymin=1e-6,ymax=1e5)
+            test.Set_axis(logx=True,logy=True,xmin=xranges[hist][0],xmax=xranges[hist][1],ymin=1e-4,ymax=1e6)
 
         name=hist.replace("/","")
 
         test.create_plot()
 
-        test.Get_axis0().set_ylim(ymin = -1.2, ymax = 1.7)
-        test.Get_axis2().set_ylim(ymin = -3, ymax = 13)
-        test.Get_axis3().set_ylim(ymin = -3, ymax = 3.0)
+        # test.Get_axis0().set_ylim(ymin = -15, ymax = 1.7)
+        test.Get_axis2().set_ylim(ymin = -3, ymax = 4)
+        # test.Get_axis3().set_ylim(ymin = -15, ymax = 3.0)
 
-        test.SavePlot('plots/%s.pdf'%(name))
+        test.SavePlot('plots/%s_cumulative.pdf'%(name))
     return 42
 
 

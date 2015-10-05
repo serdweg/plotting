@@ -99,7 +99,7 @@ def main():
 
     useROOOT=False
 
-    hist_style = sc.style_container(style = 'CMS' ,cmsPositon="upper left", useRoot = useROOOT,cms = 13, lumi = 40)
+    hist_style = sc.style_container(style = 'CMS' ,cmsPositon="upper left",legendPosition="upper left", useRoot = useROOOT,cms = 13, lumi = 82.1)
 
     bg_outFile=File("syst/bg_for_limit.root", "recreate")
 
@@ -129,7 +129,7 @@ def main():
         # print('integral 1: %f'%allbg.integral())
         # allbg = fit_histo(allbg)
         # print('integral 2: %f'%allbg.integral())
-        binning = get_binning_from_hist('res_unc.root','func',[0,4000],min_binning = 5)
+        binning = get_binning_from_hist('res_unc.root','func',[0,4000],min_binning = 40)
         rebinnedHist=allbg.rebinned(binning)
         rebinnedHist.xaxis.SetTitle(allbg.xaxis.GetTitle())
         allbg=rebinnedHist

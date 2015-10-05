@@ -48,7 +48,7 @@ def get_binning_from_hist(file_name, hist_name, plot_range, debug=False, min_bin
 
 # 
 basedir="/disk1/erdweg/television/BACKGROUND/merged/"
-lumi = 40.8 + 16.3
+lumi = 40.8 + 16.3 + 25.028
 # lumi = 10
 lumisc = float(lumi)/float(1000)
 
@@ -158,10 +158,11 @@ bghists.additionalWeight = {
 
 bghists.addFileList(bglist)
 
-dat_hist=HistStorage(xs,lumi,path="/disk1/erdweg/television/DATA/merged/",isData=True)
-dat_hist.addFile("allData")
+dat_hist=HistStorage(xs,lumi,path="/disk1/erdweg/television/",isData=True)
+dat_hist.addFile("bla")
 # dat_hist.addFile("Data_Run2015B-PromptReco_251162_252126_SingleMuon-skimid81")
 # dat_hist.addFile("Data_Run2015C-PromptReco_253888_254914_SingleMuon-skimid48")
+# dat_hist.addFile("../../DATA_25/merged/Data_Run2015C-PromptReco_253888_254914_SingleMuon-skimid48")
 
 basedir="/disk1/erdweg/television/SIGNAL/merged/"
 sghist=HistStorage(xs,lumi,path=basedir,xstype=None)
