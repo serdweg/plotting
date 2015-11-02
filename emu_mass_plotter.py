@@ -18,7 +18,7 @@ def main():
             "_met_et":30,
     }
 
-    binning.update({"emu/Stage_0/h1_0_emu_Mass":get_binning_from_hist('res_unc.root','func',[0,4000],min_binning = 40)})
+    binning.update({"emu/Stage_0/h1_0_emu_Mass":get_binning_from_hist('res_unc.root','func',[0,4000],min_binning = 5)})
     # binning.update({"emu/Stage_0/h1_0_emu_Mass":range(0,4000,20)})
 
     xranges={
@@ -41,7 +41,7 @@ def main():
         dummy = bghists.getAllAdded()
         dummy.xaxis.SetTitle('')
         dummy.yaxis.SetTitle('')
-        dummy.SaveAs('plots/' + hist.replace("/","") + '.root')
+        # dummy.SaveAs('plots/' + hist.replace("/","") + '.root')
 
         test = plotter(hist=bghists.getHistList(), sig = sghist.getHistList(),style=hist_style)
         test.Add_data(dat_hist.getHistList()[0])
@@ -62,15 +62,15 @@ def main():
         test.Add_plot('Signi',pos=2, height=12)
 
         if hist in xranges.keys():
-            test.Set_axis(logx=True,logy=True,xmin=xranges[hist][0],xmax=xranges[hist][1],ymin=1e-6,ymax=1e5)
+            test.Set_axis(logx=True,logy=True,xmin=xranges[hist][0],xmax=xranges[hist][1],ymin=1e-5,ymax=1e5)
 
         name=hist.replace("/","")
 
         test.create_plot()
 
-        test.Get_axis0().set_ylim(ymin = -1.2, ymax = 1.7)
+        test.Get_axis0().set_ylim(ymin = -7., ymax = 7.)
         test.Get_axis2().set_ylim(ymin = -3, ymax = 13)
-        test.Get_axis3().set_ylim(ymin = -3, ymax = 3.0)
+        test.Get_axis3().set_ylim(ymin = -4, ymax = 3.0)
 
         test.SavePlot('plots/%s.pdf'%(name))
     return 42

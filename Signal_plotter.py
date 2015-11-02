@@ -469,7 +469,7 @@ def main():
     # Combined 1D plots for overall efficiencies
     ####################################################################
 
-    if True:
+    if False:
         for hist in overall_hists:
             print("Now plotting: " + hist[0])
 
@@ -573,7 +573,7 @@ def main():
     # Combined 2D plots
     ####################################################################
 
-    if False:
+    if True:
         for hist in hists2D:
             print("Now plotting: " + hist)
     

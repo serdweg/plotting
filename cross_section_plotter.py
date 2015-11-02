@@ -126,7 +126,7 @@ def main():
         graph_13_k.SetPointError(i, 0, 0, 0, 0)
 
     graph_8.SetTitle('LO xs (8 TeV)')
-    graph_8.xaxis.SetTitle('$M$ (GeV)')
+    graph_8.xaxis.SetTitle('M (GeV)')
     graph_8.yaxis.SetTitle('xs $\cdot$ BR (pb)')
 
     graph_8_k.SetTitle('NLO k-factor (8 TeV)')
@@ -151,11 +151,13 @@ def main():
     hist_style = sc.style_container(style = 'CMS', useRoot = False, kind = 'Linegraphs', cmsPositon = "upper right", legendPosition = 'lower left', lumi = 0, cms = 13)
 
     hist_style.Set_additional_text('Simulation')
+    hist_style.AddAxisTitle(graph_8)
 
     hist_style.Set_axis(logy = True, grid = True, xmin = 200, xmax = 2000, histaxis_ymin = 1.0, histaxis_ymax = 1.5)
 
     test = plotter(hist = [graph_8, graph_13], hist_axis = [graph_8_k, graph_13_k], style=hist_style)
-    # test.Add_plot(plot = 'Ratio', pos = 1, height = 15, label = '')
+    # test = plotter(hist = [graph_8_k, graph_13_k], style=hist_style)
+    # test.Add_plot(plot = 'Empty', pos = 1, height = 40, label = 'k-factor')
 
     test.create_plot()
 

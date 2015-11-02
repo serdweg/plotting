@@ -129,7 +129,7 @@ def main():
         # print('integral 1: %f'%allbg.integral())
         # allbg = fit_histo(allbg)
         # print('integral 2: %f'%allbg.integral())
-        binning = get_binning_from_hist('res_unc.root','func',[0,4000],min_binning = 40)
+        binning = get_binning_from_hist('res_unc.root','func',[0,4000],min_binning = 5)
         rebinnedHist=allbg.rebinned(binning)
         rebinnedHist.xaxis.SetTitle(allbg.xaxis.GetTitle())
         allbg=rebinnedHist

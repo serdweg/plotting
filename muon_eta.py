@@ -38,7 +38,7 @@ def main():
         dummy = bghists.getAllAdded()
         dummy.xaxis.SetTitle('')
         dummy.yaxis.SetTitle('')
-        dummy.SaveAs('plots/' + hist.replace("/","") + '.root')
+        # dummy.SaveAs('plots/' + hist.replace("/","") + '.root')
 
         test = plotter(hist=bghists.getHistList(), sig = sghist.getHistList(),style=hist_style)
         test.Add_data(dat_hist.getHistList()[0])
@@ -64,14 +64,14 @@ def main():
 # 
         # mxrange=getDictValue(hist,xranges)
         if hist in xranges.keys():
-            test.Set_axis(logx=False,logy=True,xmin=xranges[hist][0],xmax=xranges[hist][1],ymin=1e-6,ymax=1e5)
+            test.Set_axis(logx=False,logy=True,xmin=xranges[hist][0],xmax=xranges[hist][1],ymin=1e-3,ymax=1e6)
             #test.Set_axis(logx=False,logy=True,xmin=0,xmax=500,ymin=1e-6,ymax=1e3)
 
         name=hist.replace("/","")
 
         test.create_plot()
 
-        test.Get_axis0().set_ylim(ymin = -5, ymax = 5.)
+        test.Get_axis0().set_ylim(ymin = -30., ymax = 30.)
         test.Get_axis2().set_ylim(ymin = -3, ymax = 5)
         test.Get_axis3().set_ylim(ymin = -3, ymax = 3.0)
 
